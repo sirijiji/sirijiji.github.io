@@ -158,6 +158,12 @@
       font-size: 13px;
       font-weight: 500;
       font-family: 'Geist Mono', monospace;
+      transition: background 0.15s ease, box-shadow 0.15s ease;
+    }
+    a.hero-badge:hover {
+      background: #ffedd5;
+      box-shadow: var(--shadow-border);
+      text-decoration: none;
     }
     .hero-actions {
       display: flex;
@@ -430,9 +436,9 @@
     <h1>Alexandre Sirisak Boungnarith</h1>
     <p class="role">Tech Lead Java — AWS Certified Solutions Architect &amp; Developer · Spring Boot, Angular, Kafka</p>
     <p class="hero-badges">
-      <span class="hero-badge">☁️ AWS Solutions Architect</span>
-      <span class="hero-badge">☁️ AWS Developer</span>
-      <span class="hero-badge">☁️ AWS Cloud Practitioner</span>
+      <a class="hero-badge" href="https://www.credly.com/badges/d2d69c0f-4ca7-4fac-8e27-67820654cc23" target="_blank" rel="noopener">☁️ AWS Solutions Architect</a>
+      <a class="hero-badge" href="https://www.credly.com/badges/e526ffe0-beea-4edc-bf7a-1c91ca499197" target="_blank" rel="noopener">☁️ AWS Developer</a>
+      <a class="hero-badge" href="https://www.credly.com/badges/733a2066-454f-4040-a17d-c3298fee48eb/public_url" target="_blank" rel="noopener">☁️ AWS Cloud Practitioner</a>
     </p>
     <p class="meta">Villejuif, Île-de-France, France · 19 ans d'expérience · 500+ relations</p>
     <div class="hero-actions">
