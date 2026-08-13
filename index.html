@@ -1,16 +1,529 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-    <script type="module" crossorigin src="/assets/index.fb9b0d4e.js"></script>
-    <link rel="modulepreload" href="/assets/vendor.d6df83b4.js">
-    <link rel="stylesheet" href="/assets/index.16c4fe9c.css">
-  </head>
-  <body>
-    <div id="app"></div>
-    
-  </body>
+<html lang="fr" dir="auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alexandre Sirisak Boungnarith — Développeur Java</title>
+  <meta name="description" content="Développeur Java chez TotalEnergies. Développement backend, microservices Java EE, Spring, cloud AWS et Azure. Villejuif, Île-de-France." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #171717;
+      --text-secondary: #4d4d4d;
+      --text-tertiary: #666666;
+      --gray-100: #ebebeb;
+      --gray-50: #fafafa;
+      --link-blue: #0072f5;
+      --focus-blue: hsla(212, 100%, 48%, 1);
+      --shadow-border: rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+      --shadow-card: rgba(0, 0, 0, 0.08) 0px 0px 0px 1px, rgba(0, 0, 0, 0.04) 0px 2px 2px, rgba(0, 0, 0, 0.04) 0px 8px 8px -8px, #fafafa 0px 0px 0px 1px;
+      --radius: 8px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Geist', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-feature-settings: "liga";
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--link-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ============ NAV ============ */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-border);
+    }
+    .nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: -0.32px;
+      font-family: 'Geist Mono', monospace;
+    }
+    .nav-logo:hover { text-decoration: none; }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .nav-links a:hover { text-decoration: none; color: var(--text-secondary); }
+    .nav-cta {
+      background: var(--text);
+      color: #fff !important;
+      border-radius: 6px;
+      padding: 8px 14px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .nav-cta:hover { text-decoration: none; opacity: 0.85; }
+
+    /* ============ LAYOUT ============ */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    section { padding: 88px 0; }
+    section + section { border-top: 1px solid var(--gray-100); }
+
+    .mono-label {
+      font-family: 'Geist Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-tertiary);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    /* ============ HERO ============ */
+    .hero {
+      padding: 120px 0 100px;
+      text-align: center;
+    }
+    .avatar {
+      width: 128px;
+      height: 128px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 32px;
+    }
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 600;
+      letter-spacing: -2.4px;
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+    .hero .role {
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      max-width: 640px;
+      margin: 0 auto 20px;
+    }
+    .hero .meta {
+      font-size: 14px;
+      color: var(--text-tertiary);
+      font-family: 'Geist Mono', monospace;
+      margin-bottom: 32px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 6px;
+      padding: 9px 16px;
+      cursor: pointer;
+    }
+    .btn-dark { background: var(--text); color: #fff; }
+    .btn-dark:hover { text-decoration: none; opacity: 0.85; }
+    .btn-ghost {
+      background: #fff;
+      color: var(--text);
+      box-shadow: rgb(235, 235, 235) 0px 0px 0px 1px;
+    }
+    .btn-ghost:hover { text-decoration: none; background: var(--gray-50); }
+
+    /* ============ ABOUT ============ */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .about-text p {
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .about-text p:first-child { color: var(--text); font-size: 18px; }
+    .facts { list-style: none; }
+    .facts li {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      box-shadow: var(--shadow-border);
+      font-size: 15px;
+    }
+    .facts li:first-child { box-shadow: none; }
+    .facts .k { color: var(--text-tertiary); }
+    .facts .v { font-weight: 500; text-align: right; }
+
+    /* ============ EXPERIENCE ============ */
+    .exp-item {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 32px;
+      padding: 28px 0;
+      box-shadow: var(--shadow-border);
+    }
+    .exp-item:first-child { box-shadow: none; }
+    .exp-period {
+      font-family: 'Geist Mono', monospace;
+      font-size: 13px;
+      color: var(--text-tertiary);
+      padding-top: 4px;
+    }
+    .exp-org {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .exp-org .pill {
+      background: #ebf5ff;
+      color: #0068d6;
+      border-radius: 9999px;
+      padding: 2px 10px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .exp-title { font-size: 20px; font-weight: 600; letter-spacing: -0.8px; margin-bottom: 6px; }
+    .exp-desc { font-size: 15px; color: var(--text-secondary); line-height: 1.65; }
+
+    /* ============ CERTS ============ */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 16px;
+    }
+    .cert-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow-card);
+      transition: box-shadow 0.2s ease;
+    }
+    .cert-card:hover { box-shadow: rgba(0,0,0,0.08) 0px 0px 0px 1px, rgba(0,0,0,0.06) 0px 4px 12px; }
+    .cert-name { font-size: 15px; font-weight: 600; letter-spacing: -0.32px; margin-bottom: 4px; }
+    .cert-org { font-size: 13px; color: var(--text-secondary); margin-bottom: 10px; }
+    .cert-meta {
+      font-family: 'Geist Mono', monospace;
+      font-size: 12px;
+      color: var(--text-tertiary);
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* ============ PUBLICATIONS ============ */
+    .pub-item {
+      padding: 24px 0;
+      box-shadow: var(--shadow-border);
+    }
+    .pub-item:first-child { box-shadow: none; }
+    .pub-title { font-size: 17px; font-weight: 600; letter-spacing: -0.32px; margin-bottom: 6px; }
+    .pub-title a { color: var(--text); }
+    .pub-title a:hover { color: var(--link-blue); text-decoration: none; }
+    .pub-meta {
+      font-family: 'Geist Mono', monospace;
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+
+    /* ============ LANGUAGES ============ */
+    .lang-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .lang-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow-card);
+    }
+    .lang-name { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+    .lang-level { font-size: 13px; color: var(--text-secondary); }
+
+    /* ============ CONTACT ============ */
+    .contact {
+      text-align: center;
+      padding: 100px 0 120px;
+    }
+    .contact h2 {
+      font-size: 40px;
+      font-weight: 600;
+      letter-spacing: -2px;
+      margin-bottom: 16px;
+    }
+    .contact p {
+      font-size: 17px;
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+
+    /* ============ FOOTER ============ */
+    .footer {
+      border-top: 1px solid var(--gray-100);
+      padding: 32px 0;
+    }
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+    .footer a { color: var(--text-tertiary); }
+    .footer a:hover { color: var(--text); }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 768px) {
+      section { padding: 64px 0; }
+      .hero { padding: 80px 0 64px; }
+      .hero h1 { font-size: 36px; letter-spacing: -1.8px; }
+      .hero .role { font-size: 18px; }
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .exp-item { grid-template-columns: 1fr; gap: 8px; }
+      .nav-links { display: none; }
+      .nav-inner { height: 52px; }
+      .contact h2 { font-size: 32px; letter-spacing: -1.6px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#top">alexandre.sirisak</a>
+      <ul class="nav-links">
+        <li><a href="#apropos">À propos</a></li>
+        <li><a href="#experience">Expérience</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a class="nav-cta" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero container" id="top">
+    <img class="avatar" src="/profile.jpg" alt="Portrait d'Alexandre Sirisak Boungnarith" width="128" height="128" />
+    <h1>Alexandre Sirisak Boungnarith</h1>
+    <p class="role">Développeur Java chez TotalEnergies — backend, microservices Java EE, Spring, cloud AWS &amp; Azure.</p>
+    <p class="meta">Villejuif, Île-de-France, France · 500+ relations · 702 abonnés</p>
+    <div class="hero-actions">
+      <a class="btn btn-dark" href="https://www.linkedin.com/in/alexandre-sirisak-boungnarith/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://github.com/sirijiji" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn-ghost" href="#contact">Me contacter</a>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="apropos">
+    <div class="container">
+      <span class="mono-label">À propos</span>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>Développeur Java avec plusieurs années d'expérience, actuellement chez TotalEnergies.</p>
+          <p>Mon parcours m'a permis de travailler sur des applications Java EE et Spring, des microservices,
+          et de monter en compétences sur l'écosystème cloud (AWS, Azure) et les méthodes agiles (Scrum).</p>
+          <p>Passionné par le développement logiciel, je partage aussi mes travaux sur GitHub — applications
+          Flutter, outils et expérimentations — et j'ai publié des articles techniques sur le blog SOAT.</p>
+        </div>
+        <ul class="facts">
+          <li><span class="k">Poste actuel</span><span class="v">TotalEnergies</span></li>
+          <li><span class="k">Localisation</span><span class="v">Villejuif, France</span></li>
+          <li><span class="k">Langues</span><span class="v">Français, Anglais, Vietnamien</span></li>
+          <li><span class="k">Certifications</span><span class="v">AWS, Azure, Scrum, Oracle</span></li>
+          <li><span class="k">Intérêts</span><span class="v">Java, Spring, Cloud, Flutter</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <span class="mono-label">Expérience</span>
+      <div class="exp-item">
+        <div class="exp-period">Aujourd'hui</div>
+        <div>
+          <div class="exp-org"><span>TotalEnergies</span><span class="pill">Actuel</span></div>
+          <div class="exp-title">Développeur Java</div>
+          <p class="exp-desc">Développement backend Java dans le groupe énergétique. Membre de l'AFCEPF
+          (association des anciens et professionnels du génie pétrolier français).</p>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-period">2015 — 2016</div>
+        <div>
+          <div class="exp-org"><span>SOAT</span></div>
+          <div class="exp-title">Consultant / Développeur Java EE</div>
+          <p class="exp-desc">Microservices Java EE (WildFly Swarm), framework web standard MVC 1.0 (JSR 371),
+          et publications techniques sur le blog de SOAT.</p>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-period">2006 — 2007</div>
+        <div>
+          <div class="exp-org"><span>Expérience antérieure</span></div>
+          <div class="exp-title">Développeur Java</div>
+          <p class="exp-desc">Premières expériences professionnelles en développement Java (2005–2007).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="container">
+      <span class="mono-label">Certifications</span>
+      <div class="certs-grid">
+        <div class="cert-card">
+          <div class="cert-name">AWS Certified Solutions Architect — Associate</div>
+          <div class="cert-org">Amazon Web Services</div>
+          <div class="cert-meta"><span>Mai 2023</span><span>Expire 2026</span></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-name">AWS Certified Developer — Associate</div>
+          <div class="cert-org">Amazon Web Services</div>
+          <div class="cert-meta"><span>Fév 2023</span><span>Expire 2026</span></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-name">Microsoft Certified: Azure Fundamentals</div>
+          <div class="cert-org">Microsoft</div>
+          <div class="cert-meta"><span>Nov 2022</span></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-name">Professional Scrum Master I (94%)</div>
+          <div class="cert-org">Scrum.org</div>
+          <div class="cert-meta"><span>Mai 2016</span></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-name">Oracle Certified Expert, Java Web Component Developer</div>
+          <div class="cert-org">Oracle</div>
+          <div class="cert-meta"><span>Mar 2014</span></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-name">Oracle Certified Professional, Java SE 7 Programmer</div>
+          <div class="cert-org">Oracle</div>
+          <div class="cert-meta"><span>Sep 2013</span></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-name">Oracle Certified Associate, Java SE 7 Programmer</div>
+          <div class="cert-org">Oracle</div>
+          <div class="cert-meta"><span>Mar 2013</span></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-name">AWS Certified Cloud Practitioner</div>
+          <div class="cert-org">Amazon Web Services</div>
+          <div class="cert-meta"><span>Jan 2013</span><span>Expire 2026</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <div class="container">
+      <span class="mono-label">Publications</span>
+      <div class="pub-item">
+        <div class="pub-title"><a href="https://blog.soat.fr/2016/07/faites-des-microservices-java-ee-avec-wildfly-swarm/" target="_blank" rel="noopener">Faites des microservices Java EE avec WildFly Swarm</a></div>
+        <p class="pub-meta">Blog SOAT — 29 juillet 2016</p>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title"><a href="https://blog.soat.fr/2016/02/presentation-de-mvc-1-0-aka-jsr-371-lautre-framework-web-java-standard/" target="_blank" rel="noopener">Présentation de MVC 1.0 aka JSR 371, l'autre framework web Java standard</a></div>
+        <p class="pub-meta">Blog SOAT — 3 février 2016</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANGUAGES -->
+  <section id="langues">
+    <div class="container">
+      <span class="mono-label">Langues</span>
+      <div class="lang-grid">
+        <div class="lang-card">
+          <div class="lang-name">Français</div>
+          <div class="lang-level">Langue maternelle</div>
+        </div>
+        <div class="lang-card">
+          <div class="lang-name">Anglais</div>
+          <div class="lang-level">Professional working proficiency</div>
+        </div>
+        <div class="lang-card">
+          <div class="lang-name">Vietnamien</div>
+          <div class="lang-level">Elementary proficiency</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2>Discutons-en.</h2>
+      <p>Une opportunité, une question, un projet ? Retrouvez-moi sur LinkedIn ou explorez mes projets sur GitHub.</p>
+      <div class="hero-actions">
+        <a class="btn btn-dark" href="https://www.linkedin.com/in/alexandre-sirisak-boungnarith/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/sirijiji" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© 2026 Alexandre Sirisak Boungnarith</span>
+      <span>Construit avec <a href="https://vercel.com" target="_blank" rel="noopener">Vercel</a> design language · <a href="/weight-weather-privacy.html">Privacy policy</a></span>
+    </div>
+  </footer>
+
+</body>
 </html>
