@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alexandre Sirisak Boungnarith — Développeur Java</title>
-  <meta name="description" content="Développeur Java chez TotalEnergies. Développement backend, microservices Java EE, Spring, cloud AWS et Azure. Villejuif, Île-de-France." />
+  <title>Alexandre Sirisak Boungnarith — Tech Lead Java</title>
+  <meta name="description" content="Tech Lead Java / Full Stack chez TotalEnergies. Java, Spring Boot, Angular, AWS, Kafka. Villejuif, Île-de-France." />
   <link rel="icon" href="/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -214,6 +214,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      flex-wrap: wrap;
     }
     .exp-org .pill {
       background: #ebf5ff;
@@ -225,6 +226,30 @@
     }
     .exp-title { font-size: 20px; font-weight: 600; letter-spacing: -0.8px; margin-bottom: 6px; }
     .exp-desc { font-size: 15px; color: var(--text-secondary); line-height: 1.65; }
+    .exp-desc ul { list-style: none; margin-top: 8px; }
+    .exp-desc li {
+      padding: 4px 0 4px 18px;
+      position: relative;
+      font-size: 14.5px;
+    }
+    .exp-desc li::before {
+      content: "";
+      position: absolute;
+      left: 2px;
+      top: 12px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gray-100);
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.12);
+    }
+    .exp-stack {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--text-tertiary);
+      font-family: 'Geist Mono', monospace;
+      line-height: 1.7;
+    }
 
     /* ============ CERTS ============ */
     .certs-grid {
@@ -252,6 +277,37 @@
       flex-wrap: wrap;
     }
 
+    /* ============ SKILLS ============ */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 16px;
+    }
+    .skill-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow-card);
+    }
+    .skill-cat {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-tertiary);
+      margin-bottom: 12px;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-tag {
+      background: var(--gray-50);
+      box-shadow: var(--shadow-border);
+      border-radius: 9999px;
+      padding: 4px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
     /* ============ PUBLICATIONS ============ */
     .pub-item {
       padding: 24px 0;
@@ -267,7 +323,7 @@
       color: var(--text-tertiary);
     }
 
-    /* ============ LANGUAGES ============ */
+    /* ============ EDUCATION / LANGUAGES ============ */
     .lang-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -344,8 +400,8 @@
       <ul class="nav-links">
         <li><a href="#apropos">À propos</a></li>
         <li><a href="#experience">Expérience</a></li>
+        <li><a href="#competences">Compétences</a></li>
         <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#publications">Publications</a></li>
         <li><a class="nav-cta" href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -355,8 +411,8 @@
   <header class="hero container" id="top">
     <img class="avatar" src="/profile.jpg" alt="Portrait d'Alexandre Sirisak Boungnarith" width="128" height="128" />
     <h1>Alexandre Sirisak Boungnarith</h1>
-    <p class="role">Développeur Java chez TotalEnergies — backend, microservices Java EE, Spring, cloud AWS &amp; Azure.</p>
-    <p class="meta">Villejuif, Île-de-France, France · 500+ relations · 702 abonnés</p>
+    <p class="role">Tech Lead Java / Full Stack chez TotalEnergies — Java, Spring Boot, Angular, AWS, Kafka.</p>
+    <p class="meta">Villejuif, Île-de-France, France · 19 ans d'expérience · 500+ relations</p>
     <div class="hero-actions">
       <a class="btn btn-dark" href="https://www.linkedin.com/in/alexandre-sirisak-boungnarith/" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn btn-ghost" href="https://github.com/sirijiji" target="_blank" rel="noopener">GitHub</a>
@@ -370,18 +426,20 @@
       <span class="mono-label">À propos</span>
       <div class="about-grid">
         <div class="about-text">
-          <p>Développeur Java avec plusieurs années d'expérience, actuellement chez TotalEnergies.</p>
-          <p>Mon parcours m'a permis de travailler sur des applications Java EE et Spring, des microservices,
-          et de monter en compétences sur l'écosystème cloud (AWS, Azure) et les méthodes agiles (Scrum).</p>
-          <p>Passionné par le développement logiciel, je partage aussi mes travaux sur GitHub — applications
-          Flutter, outils et expérimentations — et j'ai publié des articles techniques sur le blog SOAT.</p>
+          <p>Tech Lead Java avec 19 ans d'expérience dans le développement logiciel, actuellement chez TotalEnergies.</p>
+          <p>Mon parcours couvre le backend Java (Spring, Spring Boot, Spring Batch), le front-end (Angular,
+          Ember.js, AngularJS), l'intégration de flux (Kafka, Spring Batch), le cloud (AWS, Azure) et le
+          leadership d'équipe agile en tant que Scrum Master.</p>
+          <p>J'ai travaillé sur des projets critiques : applications de gestion des flux énergétiques (GRDF, Enedis),
+          migrations cloud AWS, systèmes de facturation et plateformes documentaires — dans des secteurs variés
+          (énergie, télécoms, droits d'auteur, immobilier).</p>
         </div>
         <ul class="facts">
-          <li><span class="k">Poste actuel</span><span class="v">TotalEnergies</span></li>
+          <li><span class="k">Poste actuel</span><span class="v">Tech Lead — TotalEnergies</span></li>
+          <li><span class="k">Expérience</span><span class="v">2007 — aujourd'hui (19 ans)</span></li>
           <li><span class="k">Localisation</span><span class="v">Villejuif, France</span></li>
-          <li><span class="k">Langues</span><span class="v">Français, Anglais, Vietnamien</span></li>
+          <li><span class="k">Langues</span><span class="v">Français, Anglais, Vietnamien, Chinois</span></li>
           <li><span class="k">Certifications</span><span class="v">AWS, Azure, Scrum, Oracle</span></li>
-          <li><span class="k">Intérêts</span><span class="v">Java, Spring, Cloud, Flutter</span></li>
         </ul>
       </div>
     </div>
@@ -391,30 +449,137 @@
   <section id="experience">
     <div class="container">
       <span class="mono-label">Expérience</span>
+
       <div class="exp-item">
-        <div class="exp-period">Aujourd'hui</div>
+        <div class="exp-period">Déc 2016 — aujourd'hui</div>
         <div>
-          <div class="exp-org"><span>TotalEnergies</span><span class="pill">Actuel</span></div>
-          <div class="exp-title">Développeur Java</div>
-          <p class="exp-desc">Développement backend Java dans le groupe énergétique. Membre de l'AFCEPF
-          (association des anciens et professionnels du génie pétrolier français).</p>
+          <div class="exp-org"><span>TotalEnergies — Paris</span><span class="pill">Actuel</span></div>
+          <div class="exp-title">Tech Lead Java / Full Stack</div>
+          <div class="exp-desc">
+            <p>Tech Lead sur les domaines RPG / GRP / TECH-SUPPORT / EMMM : conduite technique d'équipes,
+            migrations cloud et modernisation d'applications legacy.</p>
+            <ul>
+              <li>Migration AWS « Zeppelin », création de Lambdas AWS, évolution et maintenance de l'IaC AWS</li>
+              <li>Migration d'applications legacy (« Perrier ») vers Xenon, schémas AVRO et configuration Kafka Confluent</li>
+              <li>Migration AWS du projet Starweb (reporting conso élec/gaz), déploiement conteneurisé Docker sur EC2</li>
+              <li>Projet Xenon (2 ans) : gestion des flux gaz industriels (GRDF), équipe de 6 — Scrum Master, REST, OAuth2 Azure AD</li>
+              <li>Projet Helios (2 ans) : gestion des flux Enedis, support niveau 3, parallélisation des batchs Spring</li>
+              <li>Migration des clients Total Spring / Total Énergie Gaz vers le SI Direct Énergie (batch d'intégration Spring Batch)</li>
+              <li>Upgrades : Java 11→17→25, Spring Boot 2.7→3.1→4.x, Angular 12→15→22 (standalone), Ember.js 2.4→3.3</li>
+            </ul>
+            <p class="exp-stack">Java 17/25 · Spring Boot 3/4 (core, batch, mvc, kafka) · Spring Data JPA · Angular 15/22 · Kafka Confluent · AWS (Lambda, EC2, IaC) · Docker · PostgreSQL · Jenkins · Liquibase · Veracode · Sonar</p>
+          </div>
         </div>
       </div>
+
       <div class="exp-item">
-        <div class="exp-period">2015 — 2016</div>
+        <div class="exp-period">Oct 2014 — Nov 2016</div>
         <div>
-          <div class="exp-org"><span>SOAT</span></div>
-          <div class="exp-title">Consultant / Développeur Java EE</div>
-          <p class="exp-desc">Microservices Java EE (WildFly Swarm), framework web standard MVC 1.0 (JSR 371),
-          et publications techniques sur le blog de SOAT.</p>
+          <div class="exp-org"><span>Canal+ — Issy-les-Moulineaux</span></div>
+          <div class="exp-title">Développeur Java</div>
+          <div class="exp-desc">
+            <p>Projet KISS : application de gestion des abonnés pour les téléconseillers (Feature Team Finance /
+            comptabilité, équipe de 6).</p>
+            <ul>
+              <li>Conception et évolution de modules front-end (AngularJS) et back-end (Spring 3, Hibernate)</li>
+              <li>Création et consommation de webservices REST, optimisation et parallélisation de batchs Spring</li>
+              <li>Organisation des cérémonies SCRUM, mise en place des hooks Git</li>
+            </ul>
+            <p class="exp-stack">Java 7 · Spring 3 (core, mvc, batch) · Hibernate · AngularJS 1.4 · Node.js · MongoDB · Oracle · Jenkins · Maven · Liquibase</p>
+          </div>
         </div>
       </div>
+
       <div class="exp-item">
-        <div class="exp-period">2006 — 2007</div>
+        <div class="exp-period">Fév 2009 — Sep 2014</div>
         <div>
-          <div class="exp-org"><span>Expérience antérieure</span></div>
+          <div class="exp-org"><span>SACEM — Neuilly-sur-Seine</span></div>
           <div class="exp-title">Développeur Java</div>
-          <p class="exp-desc">Premières expériences professionnelles en développement Java (2005–2007).</p>
+          <div class="exp-desc">
+            <ul>
+              <li>Projet Armonia (2 ans) : gestion de conflits de revendications entre sociétés d'auteurs, projet international en SCRUM, échanges avec l'équipe italienne</li>
+              <li>Projet IDOLS (1 an ½) : plateforme de documentation en ligne pour les professionnels de la musique</li>
+              <li>Projet FACOP (1 an) : édition de factures débit/crédit pour la taxe copie privée</li>
+              <li>Projet Youpi (6 mois) : application de transformation de fichiers Excel (Java Swing), formation et support utilisateur</li>
+              <li>Migration Ant → Maven, jobs Jenkins, webservices SOAP</li>
+            </ul>
+            <p class="exp-stack">Java 6 · JSP/Servlets · Spring Core/Batch · Hibernate · Struts 1.1/2.0 · Swing · SOAP · Oracle · MySQL · Jenkins · Maven · SVN</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-period">Avr 2007 — Jan 2009</div>
+        <div>
+          <div class="exp-org"><span>1GENIA (EI-Technologies) — Vincennes</span></div>
+          <div class="exp-title">Développeur Java</div>
+          <div class="exp-desc">
+            <ul>
+              <li>Projet John Taylor (1 an) : application de gestion immobilière, recherche sur les biens, génération PDF, widgets GWT</li>
+              <li>Projet 1GContent (1 an) : solution de gestion de contenu d'entreprise en Java/JEE</li>
+            </ul>
+            <p class="exp-stack">Java 1.5/JEE · JSP/Servlets · GWT · Spring MVC/Core · Hibernate · PostgreSQL · Tomcat · SVN · Maven</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="competences">
+    <div class="container">
+      <span class="mono-label">Compétences</span>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-cat">Backend</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Java (6 → 25)</span>
+            <span class="skill-tag">Spring Boot 3/4</span>
+            <span class="skill-tag">Spring Batch</span>
+            <span class="skill-tag">Spring Data JPA</span>
+            <span class="skill-tag">Hibernate</span>
+            <span class="skill-tag">Microservices</span>
+            <span class="skill-tag">REST / SOAP</span>
+            <span class="skill-tag">JUnit 5 / Mockito</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-cat">Frontend</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Angular (12 → 22)</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Ember.js</span>
+            <span class="skill-tag">AngularJS</span>
+            <span class="skill-tag">Bootstrap</span>
+            <span class="skill-tag">HTML / CSS</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-cat">Cloud &amp; Intégration</div>
+          <div class="skill-tags">
+            <span class="skill-tag">AWS (Lambda, EC2, IaC)</span>
+            <span class="skill-tag">Azure AD / OAuth2</span>
+            <span class="skill-tag">Kafka Confluent</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Avro</span>
+            <span class="skill-tag">Spring Batch</span>
+            <span class="skill-tag">SQL / PL/SQL</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-cat">Outils &amp; Méthodes</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Git / GitHub</span>
+            <span class="skill-tag">GitLab / Bitbucket</span>
+            <span class="skill-tag">Jenkins</span>
+            <span class="skill-tag">GitHub Actions</span>
+            <span class="skill-tag">Gradle / Maven</span>
+            <span class="skill-tag">Liquibase</span>
+            <span class="skill-tag">Sonar / Veracode</span>
+            <span class="skill-tag">Scrum / Scrum Master</span>
+            <span class="skill-tag">IntelliJ</span>
+          </div>
         </div>
       </div>
     </div>
@@ -484,10 +649,19 @@
     </div>
   </section>
 
-  <!-- LANGUAGES -->
-  <section id="langues">
+  <!-- EDUCATION & LANGUAGES -->
+  <section id="formation">
     <div class="container">
-      <span class="mono-label">Langues</span>
+      <span class="mono-label">Formation &amp; Langues</span>
+      <div class="skills-grid" style="margin-bottom: 32px;">
+        <div class="skill-card">
+          <div class="skill-cat">Formation</div>
+          <div style="font-size: 15px; font-weight: 600; margin-bottom: 4px;">AFCEPF — Malakoff</div>
+          <div style="font-size: 13px; color: var(--text-secondary); margin-bottom: 14px;">Analyste Informaticien — Sep 2006 → Mar 2007</div>
+          <div style="font-size: 15px; font-weight: 600; margin-bottom: 4px;">Université d'Évry / Orsay</div>
+          <div style="font-size: 13px; color: var(--text-secondary);">Master 2 Pro Sciences et Génie des matériaux — Sep 2005 → Août 2006</div>
+        </div>
+      </div>
       <div class="lang-grid">
         <div class="lang-card">
           <div class="lang-name">Français</div>
@@ -495,11 +669,15 @@
         </div>
         <div class="lang-card">
           <div class="lang-name">Anglais</div>
-          <div class="lang-level">Professional working proficiency</div>
+          <div class="lang-level">Courant</div>
         </div>
         <div class="lang-card">
           <div class="lang-name">Vietnamien</div>
-          <div class="lang-level">Elementary proficiency</div>
+          <div class="lang-level">Notions</div>
+        </div>
+        <div class="lang-card">
+          <div class="lang-name">Chinois (Mandarin)</div>
+          <div class="lang-level">Notions</div>
         </div>
       </div>
     </div>
@@ -521,7 +699,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <span>© 2026 Alexandre Sirisak Boungnarith</span>
-      <span>Construit avec <a href="https://vercel.com" target="_blank" rel="noopener">Vercel</a> design language · <a href="/weight-weather-privacy.html">Privacy policy</a></span>
+      <span>Design <a href="https://vercel.com" target="_blank" rel="noopener">Vercel</a> · <a href="/weight-weather-privacy.html">Privacy policy</a></span>
     </div>
   </footer>
 
