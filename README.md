@@ -1,6 +1,6 @@
 # sirijiji.github.io
 
-Portfolio et CV en ligne d'Alexandre Sirisak Boungnarith, Tech Lead Java/TypeScript.
+Portfolio et CV en ligne d'Alexandre Sirisak Boungnarith, Tech Lead Java/TypeScript, spécialisé en modernisation legacy et cloud.
 
 Site public : https://sirijiji.github.io/
 
